@@ -1,25 +1,22 @@
 package bank.analysis;
 
-import java.util.Scanner;
+// import java.util.Scanner;
 import java.io.*;
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 public class accountAnalysis
 {
     private String accountDB;
-    private account_list newList; // linkedlist of account_node
+    // linkedlist of account_node
+    private account_list newList; 
     
-    public accountAnalysis(String accountDB)
-    {
+    public accountAnalysis(String accountDB){
         this.accountDB = accountDB;
-        //newList will not be inialized here
-        //because each method uses different order of lists
+        //newList will not be inialized here because each method uses different order of lists
     }
     
-    public void searchAccount() throws IOException
-    {
+    public void searchAccount() throws IOException{
         /*
-        Your code goes here:
         (1) Call constructor of account_list to initialize newList
         (2) Open file accountDB
         (3) Read all accounts in file. For every account,
@@ -34,10 +31,8 @@ public class accountAnalysis
 
     }
     
-    public void displayAccountsIncreasing() throws IOException
-    {
+    public void displayAccountsIncreasing() throws IOException{
         /*
-        Your code goes here:
         (1) Call constructor of account_list to initialize newList
         (2) Open file accountDB
         (3) Read all accounts in file. For every account,
@@ -49,10 +44,8 @@ public class accountAnalysis
         */
     }
     
-    public void displayAccountsDecreasing() throws IOException
-    {
+    public void displayAccountsDecreasing() throws IOException{
         /*
-        Your code goes here:
         (1) Call constructor of account_list to initialize newList
         (2) Open file accountDB
         (3) Read all accounts in file. For every account,

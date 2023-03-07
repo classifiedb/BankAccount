@@ -6,26 +6,22 @@ import java.util.ArrayList;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class bankTransaction
-{
+public class bankTransaction{
     private String accountDB;
     private String transactionDB;
     private ArrayList accounts;
     
-    public bankTransaction(String accountDB, String transactionDB)
-    {
+    public bankTransaction(String accountDB, String transactionDB){
         this.accountDB = accountDB;
         this.transactionDB = transactionDB;
         accounts = new ArrayList<account>();
     }
 
-    public void loadDB() throws IOException
-    {
+    public void loadDB() throws IOException{
         File file = new File(accountDB);
         Scanner inFile = new Scanner(file);
 
-        while (inFile.hasNext())
-        {
+        while (inFile.hasNext()){
            int act = inFile.nextInt();
            String fn = inFile.next();
            String ln = inFile.next();
@@ -37,8 +33,7 @@ public class bankTransaction
         inFile.close();
     }
     
-    private account searchAccount(int actNum)
-    {
+    private account searchAccount(int actNum){
         for(int i=0; i<accounts.size(); i++)
         {
             account a = (account)accounts.get(i);
@@ -48,8 +43,7 @@ public class bankTransaction
         return null;
     }
   
-    public void deposit() throws IOException
-    {
+    public void deposit() throws IOException{
         Scanner input = new Scanner(System.in);
         System.out.print("Please enter the account Number: ");
         int act = input.nextInt();
@@ -66,8 +60,7 @@ public class bankTransaction
         else System.out.println("Account not found.");
     }
     
-    public void withdraw() throws IOException
-    {
+    public void withdraw() throws IOException{
         Scanner input = new Scanner(System.in);
         System.out.print("Please enter the account Number: ");
         int act = input.nextInt();
@@ -76,22 +69,20 @@ public class bankTransaction
         double amount = input.nextDouble();
 
         account a = searchAccount(act);
-        if(a!=null)
-        {
-            if(a.withdraw(amount)==true)
+        if(a!=null){
+            if(a.withdraw(amount)==true){
                 recordTransaction(act, 'W', amount);
-            else
+            }else{
                 System.out.println("no enough balance.");
+            }
         }
         else System.out.println("Account not found.");
     }
     
-    public void saveDB() throws IOException
-    {
+    public void saveDB() throws IOException{
         FileWriter fw = new FileWriter(accountDB);
         
-        for(int i=0; i<accounts.size(); i++)
-        {
+        for(int i=0; i<accounts.size(); i++){
             account a = (account)accounts.get(i);
             int act = a.getAccountNumber();
             String fn = a.getFirstname();
@@ -103,8 +94,7 @@ public class bankTransaction
         fw.close();
     }
     
-    void recordTransaction(int actNum, char type, double amount) throws IOException
-    {
+    void recordTransaction(int actNum, char type, double amount) throws IOException{
         FileWriter transactionFile = new FileWriter(transactionDB, true);
         
         String time = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
