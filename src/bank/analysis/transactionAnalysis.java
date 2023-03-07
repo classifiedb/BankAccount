@@ -7,7 +7,8 @@ import java.util.ArrayList;
 public class transactionAnalysis
 {
     private String transactionDB;
-    private ArrayList transactions;
+    //added <transactionRecord type because of generic type error
+    private ArrayList<transactionRecord> transactions;
     
     public transactionAnalysis(String transactionDB)
     {
@@ -36,6 +37,8 @@ public class transactionAnalysis
     public void listTransactions()
     {
 	Scanner input = new Scanner(System.in);
+    // added this line to close input (I was getting a warining input not closed)
+    input.close();
 	System.out.print("Please enter the account Number: ");
 	int actNum = input.nextInt();
 		

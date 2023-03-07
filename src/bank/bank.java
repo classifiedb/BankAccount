@@ -20,6 +20,8 @@ public class bank
     public void accountManagement() throws IOException
     {
         Scanner input = new Scanner(System.in);
+        // added this line to close input (I was getting a warining input not closed)
+        input.close();
         int choice = 0;
         boolean done = false;
                
@@ -50,6 +52,8 @@ public class bank
     public void conductTransactions() throws IOException
     {
         Scanner input = new Scanner(System.in);
+        // added this line to close input (I was getting a warining input not closed)
+        input.close();
         int choice = 0;
         boolean done = false;
        
@@ -81,6 +85,8 @@ public class bank
     public void analysis() throws IOException
     {
         Scanner input = new Scanner(System.in);
+        // added this line to close input (I was getting a warining input not closed)
+        input.close();
         int choice = 0;
         boolean done = false;
 

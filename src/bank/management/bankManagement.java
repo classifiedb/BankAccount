@@ -18,9 +18,12 @@ public class bankManagement{
 
         while (inFile.hasNext()){
            int act = inFile.nextInt();
+           /*
+           I decided to comment these out because apparently they are not used (warning)
            String fn = inFile.next();
            String ln = inFile.next();
            double balance = inFile.nextDouble();
+           */
 
            if(act == actNum) found = true;
         }
@@ -34,7 +37,10 @@ public class bankManagement{
         File file = new File(accountDB);
         Scanner inFile = new Scanner(file);
 
-        boolean found = false;
+        /*
+        commenting out found because it doesn't appear to be used here and throw a warning
+        boolean found = false
+        */
 
         while (inFile.hasNext()){
            int act = inFile.nextInt();
@@ -52,6 +58,8 @@ public class bankManagement{
         Scanner input = new Scanner(System.in);
         System.out.print("Please enter a new account Number: ");
         int act = input.nextInt();
+        // added this line to close input (I was getting a warining input not closed)
+        input.close();
 
         if(accountExist(act)== true){
             System.out.println("This account exists.\n");
@@ -71,6 +79,8 @@ public class bankManagement{
         Scanner input = new Scanner(System.in);
         System.out.print("Please enter the account Number: ");
         int actNum = input.nextInt();
+        // added this line to close input (I was getting a warining input not closed)
+        input.close();
 
         File file = new File(accountDB);
         File temp = new File("temp.txt");

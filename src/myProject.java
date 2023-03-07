@@ -20,8 +20,11 @@ public class myProject
         bank myBank = new bank(accountDB, transactionDB);    
 
         Scanner input = new Scanner(System.in);
+        // added this line to close input (I was getting a warining input not closed)
+        input.close();
         int choice = 0;
         boolean done = false;
+        
 
         while(done == false)
         {

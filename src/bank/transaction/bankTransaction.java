@@ -9,7 +9,8 @@ import java.util.Date;
 public class bankTransaction{
     private String accountDB;
     private String transactionDB;
-    private ArrayList accounts;
+    //added type accounts because I was getting an error for raw type, reference to generic type ArrayList<E>
+    private ArrayList<account> accounts;
     
     public bankTransaction(String accountDB, String transactionDB){
         this.accountDB = accountDB;
@@ -47,6 +48,8 @@ public class bankTransaction{
         Scanner input = new Scanner(System.in);
         System.out.print("Please enter the account Number: ");
         int act = input.nextInt();
+        // added this line to close input (I was getting a warining input not closed)
+        input.close();
         
         System.out.print("Please enter the amount: ");
         double amount = input.nextDouble();
@@ -64,6 +67,8 @@ public class bankTransaction{
         Scanner input = new Scanner(System.in);
         System.out.print("Please enter the account Number: ");
         int act = input.nextInt();
+        // added this line to close input (I was getting a warining input not closed)
+        input.close();
         
         System.out.print("Please enter the amount: ");
         double amount = input.nextDouble();
